@@ -1,34 +1,36 @@
-﻿@model VHSOnly.ViewModels.CustomersViewModel
+﻿@model IEnumerable<VHSOnly.Models.Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Customers</h2>
-
-
-
-@if (Model.Customers.Count < 1)
+@if (!Model.Any())
 {
-    <text>Would you like to be our customer?</text>
+    <p>Would you be my Customer?</p><img src="https://www.insideedition.com/sites/default/files/styles/931x523/public/images/2018-03/032318-mrrogers-1280x720.jpg" />
 }
 else
 {
     <table class="table table-bordered table-hover">
-        <tr>
-            <th>Customer</th>
-        </tr>
-
-        @foreach (var customer in Model.Customers)
-        {
+        <thead>
             <tr>
-                <td>
-                    @Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)
-                </td>
+                <th>Customer</th>
             </tr>
-        }
-
+        </thead>
+        <tbody>
+            @foreach(var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers",new { id = customer.Id}, null)</td>
+                </tr>
+            }
+        </tbody>
     </table>
-
 }
+
+
+
+
+
+
 

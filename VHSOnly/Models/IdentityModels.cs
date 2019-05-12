@@ -20,7 +20,7 @@ namespace VHSOnly.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

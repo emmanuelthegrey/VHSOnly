@@ -10,7 +10,15 @@ namespace VHSOnly.Controllers
 {
     public class CustomersController : Controller
     {
-
+        private ApplicationDbContext _context;
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
@@ -24,12 +32,13 @@ namespace VHSOnly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var movieViewModel = new CustomersViewModel
-            {
-                Customers = GetCustomers().ToList()
-            };
+            //var movieViewModel = new CustomersViewModel
+            //{
+            //    Customers = _context.Customers
+            //};
 
-            return View(movieViewModel);
+            var customers = _context.Customers;
+            return View(customers);
         }
 
         [Route("Customers/Details/{id}")]
