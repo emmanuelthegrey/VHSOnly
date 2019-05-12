@@ -19,32 +19,19 @@ namespace VHSOnly.Controllers
         {
             _context.Dispose();
         }
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-           {
-               new Customer{Name = "Whitney Houston", Id = 1},
-               new Customer{Name = "Markie Mark", Id = 2},
-               new Customer{Name = "Prince", Id = 3},
-           };
-        }
 
         // GET: Customers
         public ActionResult Index()
         {
-            //var movieViewModel = new CustomersViewModel
-            //{
-            //    Customers = _context.Customers
-            //};
 
-            var customers = _context.Customers;
+            var customers = _context.Customers.ToList();
             return View(customers);
         }
 
         [Route("Customers/Details/{id}")]
         public ActionResult Details(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
 
