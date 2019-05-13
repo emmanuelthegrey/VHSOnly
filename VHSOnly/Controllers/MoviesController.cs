@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,15 @@ namespace VHSOnly.Controllers
 {
     public class MoviesController : Controller
     {
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        private ApplicationDbContext _context;
         // GET: Movies/Random
         public ActionResult Random()
         {
@@ -39,24 +49,26 @@ namespace VHSOnly.Controllers
         [Route("Movies")]
         public ActionResult Index()
         {
-            var movies = new List<Movie>
-           {
-               new Movie{Name = "Honey I Shrunk The Kids"},
-               new Movie{Name = "Baby Boy"},
-               new Movie{Name = "Ace Ventura"},
-           };
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
 
-            var movieViewModel = new MovieViewModel
-            {
-                Movies = movies
-            };
-
-            return View(movieViewModel);
+            return View(movies);
         }
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
+        }
+
+        [Route("Movies/Details/{id}")]
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
+            if (movie == null)
+                return HttpNotFound();
+
+
+
+            return View(movie);
         }
     }
 }
