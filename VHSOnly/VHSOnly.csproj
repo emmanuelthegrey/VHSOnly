@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201905120407103_PopulateGenres.Designer.cs">
       <DependentUpon>201905120407103_PopulateGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905190350591_UpdateMovieModel.cs" />
+    <Compile Include="Migrations\201905190350591_UpdateMovieModel.Designer.cs">
+      <DependentUpon>201905190350591_UpdateMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -238,6 +242,7 @@
     <Compile Include="ViewModels\CustomersViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\NewMovieViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +309,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\NewMovie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905120407103_PopulateGenres.resx">
       <DependentUpon>201905120407103_PopulateGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905190350591_UpdateMovieModel.resx">
+      <DependentUpon>201905190350591_UpdateMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

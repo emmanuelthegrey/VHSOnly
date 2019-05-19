@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -44,9 +45,20 @@ namespace VHSOnly.Controllers
 
         public ActionResult Edit(int id)
         {
-            return Content($"id={id}");
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new NewMovieViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+
+            return View("NewMovie", viewModel);
         }
-        [Route("Movies")]
+        
         public ActionResult Index()
         {
             var movies = _context.Movies.Include(m => m.Genre).ToList();
@@ -69,6 +81,39 @@ namespace VHSOnly.Controllers
 
 
             return View(movie);
+        }
+
+        [Route("Movies/NewMovie")]
+        public ActionResult NewMovie()
+        {
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new NewMovieViewModel
+            {
+                Genres = genres
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+                _context.Movies.Add(movie);
+            else
+            {
+                var movieInDB = _context.Movies.Single(c => c.Id == movie.Id);
+
+                movieInDB.Name = movie.Name;
+                movieInDB.Genre = movie.Genre;
+                movieInDB.ReleaseDate = movie.ReleaseDate;
+                movieInDB.NumberInStock = movie.NumberInStock;
+            }
+            
+                _context.SaveChanges();
+
+           
+            return RedirectToAction("Index", "Movies");
         }
     }
 }
