@@ -90,6 +90,7 @@ namespace VHSOnly.Controllers
 
             var viewModel = new NewMovieViewModel
             {
+                Movie = new Movie(),
                 Genres = genres
             };
             return View(viewModel);
