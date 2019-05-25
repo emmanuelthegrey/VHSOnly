@@ -36,17 +36,23 @@ else
 @section scripts{
     <script>
         $(document).ready(function () {
-            $("#customers .js-delete").on("click", function () {
+            $("#customers").DataTable();
+
+            $("#customers").on("click", "js-delete",function () {
                 var button = $(this);
-                if (confirm("Delete Customer?")) {
-                    $.ajax({
-                        url: "/api/customers/" + button.attr("data-customer-id"),
-                        method: "DELETE",
-                        success: function () {
-                            button.parents("tr").remove();
-                        }
-                    });
-                }
+
+                bootbox.confirm("Delete Customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
+                });
+                
             });
         });
     </script>
