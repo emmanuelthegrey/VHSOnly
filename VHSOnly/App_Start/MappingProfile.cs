@@ -12,10 +12,13 @@ namespace VHSOnly.App_Start
     {
         public MappingProfile()
         {
-            Mapper.CreateMap<Customer, CustomerDTO>().ForMember(c => c.Id, opt => opt.Ignore());
+            Mapper.CreateMap<Customer, CustomerDTO>();
+            
             Mapper.CreateMap<CustomerDTO, Customer>();
             Mapper.CreateMap<Movie, MovieDTO>().ForMember(c => c.Id, opt => opt.Ignore());
             Mapper.CreateMap<MovieDTO, Movie>();
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
+
         }
     }
 }

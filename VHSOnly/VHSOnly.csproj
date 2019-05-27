@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
+    <Compile Include="DTOs\MembershipTypeDTO.cs" />
     <Compile Include="DTOs\MovieDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +251,10 @@
     <Compile Include="Migrations\201905230414488_UpdateMoviePOCO.cs" />
     <Compile Include="Migrations\201905230414488_UpdateMoviePOCO.Designer.cs">
       <DependentUpon>201905230414488_UpdateMoviePOCO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905270445031_DTOChanges.cs" />
+    <Compile Include="Migrations\201905270445031_DTOChanges.Designer.cs">
+      <DependentUpon>201905270445031_DTOChanges.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -564,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905230414488_UpdateMoviePOCO.resx">
       <DependentUpon>201905230414488_UpdateMoviePOCO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905270445031_DTOChanges.resx">
+      <DependentUpon>201905270445031_DTOChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
