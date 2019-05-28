@@ -7,13 +7,13 @@ namespace VHSOnly.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DTOChanges : IMigrationMetadata
+    public sealed partial class StartingUsers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DTOChanges));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(StartingUsers));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905270445031_DTOChanges"; }
+            get { return "201905280216468_StartingUsers"; }
         }
         
         string IMigrationMetadata.Source

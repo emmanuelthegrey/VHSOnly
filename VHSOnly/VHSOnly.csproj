@@ -253,9 +253,9 @@
     <Compile Include="Migrations\201905230414488_UpdateMoviePOCO.Designer.cs">
       <DependentUpon>201905230414488_UpdateMoviePOCO.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905270445031_DTOChanges.cs" />
-    <Compile Include="Migrations\201905270445031_DTOChanges.Designer.cs">
-      <DependentUpon>201905270445031_DTOChanges.cs</DependentUpon>
+    <Compile Include="Migrations\201905280216468_StartingUsers.cs" />
+    <Compile Include="Migrations\201905280216468_StartingUsers.Designer.cs">
+      <DependentUpon>201905280216468_StartingUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -571,8 +571,8 @@
     <EmbeddedResource Include="Migrations\201905230414488_UpdateMoviePOCO.resx">
       <DependentUpon>201905230414488_UpdateMoviePOCO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905270445031_DTOChanges.resx">
-      <DependentUpon>201905270445031_DTOChanges.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905280216468_StartingUsers.resx">
+      <DependentUpon>201905280216468_StartingUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
