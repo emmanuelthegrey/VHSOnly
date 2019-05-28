@@ -15,9 +15,10 @@ namespace VHSOnly.App_Start
             Mapper.CreateMap<Customer, CustomerDTO>();
             
             Mapper.CreateMap<CustomerDTO, Customer>();
-            Mapper.CreateMap<Movie, MovieDTO>().ForMember(c => c.Id, opt => opt.Ignore());
+            Mapper.CreateMap<Movie, MovieDTO>();
             Mapper.CreateMap<MovieDTO, Movie>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
+            Mapper.CreateMap<Genre, GenreDto>();
 
         }
     }

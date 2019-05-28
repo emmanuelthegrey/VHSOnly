@@ -19,6 +19,8 @@ namespace VHSOnly.DTOs
         [Required]
         public byte GenreId { get; set; }
 
+        public GenreDto Genre { get; set; }
+
 
         [Column(TypeName = "datetime2")]
         [Display(Name = "Release Date")]
