@@ -39,6 +39,7 @@ namespace VHSOnly.Controllers.Api
 
             return Ok(Mapper.Map<Movie, MovieDTO>(movie));
         }
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDTO movieDTO)
         {
@@ -53,7 +54,7 @@ namespace VHSOnly.Controllers.Api
 
             return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDTO);
         }
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPut]
         public void UpdateMovie(int id, MovieDTO movieDTO)
         {
@@ -70,7 +71,7 @@ namespace VHSOnly.Controllers.Api
 
             _context.SaveChanges();
         }
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpDelete]
         public void DeleteMovie(int id)
         {

@@ -42,6 +42,7 @@ namespace VHSOnly.Controllers
             //ViewBag.Movie = movie;
             return View(viewModel);
         }
+        [Authorize(Roles = RoleName.CanManageMovies)]
 
         public ActionResult Edit(int id)
         {
@@ -61,9 +62,10 @@ namespace VHSOnly.Controllers
         
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
-
-            return View(movies);
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
+            
+            return View("ReadOnlyList");
         }
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
@@ -82,18 +84,18 @@ namespace VHSOnly.Controllers
 
             return View(movie);
         }
-
+        [Authorize(Roles =RoleName.CanManageMovies)]
         [Route("Movies/NewMovie")]
-        public ActionResult NewMovie()
+        public ViewResult New()
         {
             var genres = _context.Genres.ToList();
 
-            var viewModel = new NewMovieViewModel
+            var viewModel = new NewMovieViewModel()
             {
-                Movie = new Movie(),
                 Genres = genres
             };
-            return View(viewModel);
+
+            return View("NewMovie", viewModel);
         }
 
         [HttpPost]
