@@ -8,6 +8,10 @@ namespace VHSOnly.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Drivers License")]
+        public string DriversLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel
