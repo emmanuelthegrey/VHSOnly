@@ -54,9 +54,9 @@ namespace VHSOnly
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "513291579207416",
+               appSecret: "895973fe7ddba00d00ea8e0620ec8c32");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
