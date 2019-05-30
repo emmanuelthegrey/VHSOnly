@@ -12,6 +12,10 @@ namespace VHSOnly.Models
         [Required]
         [Display(Name = "Drivers License")]
         public string DriversLicense { get; set; }
+
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -71,6 +75,10 @@ namespace VHSOnly.Models
         [Required]
         [Display(Name = "Drivers License")]
         public string DriversLicense { get; set; }
+
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string Phone { get; set; }
 
         [Required]
         [EmailAddress]
