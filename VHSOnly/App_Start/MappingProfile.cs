@@ -13,13 +13,14 @@ namespace VHSOnly.App_Start
         public MappingProfile()
         {
             Mapper.CreateMap<Customer, CustomerDTO>();
-            
-            Mapper.CreateMap<CustomerDTO, Customer>();
             Mapper.CreateMap<Movie, MovieDTO>();
-            Mapper.CreateMap<MovieDTO, Movie>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Genre, GenreDto>();
 
+
+
+            Mapper.CreateMap<CustomerDTO, Customer>();
+            Mapper.CreateMap<MovieDTO, Movie>();
         }
     }
 }
